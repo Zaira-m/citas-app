@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Gestión de citas</h2>
+
+  <!-- CITA -->
+  <ion-item>
+    <ion-label position="stacked">Cita</ion-label>
+    <ion-input
+      name="phrase"
+      [(ngModel)]="phrase"
+      #phraseModel="ngModel"
+      required
+      minlength="5"
+      placeholder="Escribe la cita">
+    </ion-input>
+  </ion-item>
+
+  <ion-text color="danger" *ngIf="phraseModel.touched && phraseModel.invalid">
+    <small *ngIf="phraseModel.errors?.['required']">
+      La cita es obligatoria.
+    </small>
+    <small *ngIf="phraseModel.errors?.['minlength']">
+      La cita debe tener al menos 5 caracteres.
+    </small>
+  </ion-text>
+
+  <!-- AUTOR -->
+  <ion-item>
+    <ion-label position="stacked">Autor</ion-label>
+    <ion-input
+      name="author"
+      [(ngModel)]="author"
+      #authorModel="ngModel"
+      required
+      minlength="2"
+      placeholder="Nombre del autor">
+    </ion-input>
+  </ion-item>
+
+  <ion-text color="danger" *ngIf="authorModel.touched && authorModel.invalid">
+    <small *ngIf="authorModel.errors?.['required']">
+      El autor es obligatorio.
+    </small>
+    <small *ngIf="authorModel.errors?.['minlength']">
+      El autor debe tener al menos 2 caracteres.
+    </small>
+  </ion-text>
+
+  <!-- BOTÓN -->
+  <ion-button
+    expand="block"
+    (click)="addQuote()"
+    [disabled]="phraseModel.invalid || authorModel.invalid">
+    AGREGAR +
+  </ion-button>
+
+  <!-- LISTADO -->
+  <ion-list>
+    <app-quote-card
+      *ngFor="let q of quotes"
+      [quote]="q"
+      (delete)="deleteQuote($event)">
+    </app-quote-card>
+  </ion-list>
+
+</ion-content>

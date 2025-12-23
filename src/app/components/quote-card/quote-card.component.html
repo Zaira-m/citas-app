@@ -1,0 +1,18 @@
+<ion-card *ngIf="quote">
+  <ion-card-header>
+    <ion-card-title>Frase</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>"{{ quote.phrase }}"</p>
+    <p><strong>— {{ quote.author }}</strong></p>
+
+    <ion-button expand="block" (click)="onNewQuoteClick()">
+      NUEVA CITA
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="onDeleteClick()">
+      ELIMINAR
+    </ion-button>
+  </ion-card-content>
+</ion-card>

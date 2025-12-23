@@ -1,3 +1,19 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Citas App</ion-title>
+    </ion-toolbar>
+
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/quotes">Citas</ion-button>
+        <ion-button routerLink="/settings">Configuración</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
 </ion-app>
