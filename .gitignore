@@ -4,3 +4,6 @@ android/
 www/
 dist/
 platforms/
+
+#Angular cache
+.angular/
